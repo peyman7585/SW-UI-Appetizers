@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Appetizer: Codable {
+struct Appetizer: Codable, Identifiable {
     let id: Int
     let name: String
     let description: String
@@ -28,7 +28,7 @@ struct MockData {
                                           name: "yummy yum",
                                           description: "this is test for appetizer",
                                           imageURL: "",
-                                          price: 11,
+                                          price: 18.89,
                                           calories: 22,
                                           protein: 34,
                                           carbs: 1232)
