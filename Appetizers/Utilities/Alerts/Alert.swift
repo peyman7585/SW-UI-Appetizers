@@ -27,5 +27,14 @@ struct AlertItem: Identifiable {
         static let unableToComplete = AlertItem(title: Text("Server Error"),
                                                 message: Text("Unable to complete your request at this time. Please check your internet connection"),
                                                 dismissButton: .default(Text("OK")))
+        
+        
+        
+        static let invalidForm = AlertItem(title: Text("invalid Form"),
+                                                message: Text("Please ensure all fields in the form have been filled out"),
+                                                dismissButton: .default(Text("OK")))
+        static let invalidEmail = AlertItem(title: Text("invalid Email"),
+                                                message: Text("Please ensure your email is correct"),
+                                                dismissButton: .default(Text("OK")))
     
 }
