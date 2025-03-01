@@ -11,6 +11,7 @@ struct OrderView: View {
     
     @EnvironmentObject var order: Order
     
+    @State private var orderItems = MockData.orderItem
     
     var body: some View {
         NavigationView{
@@ -20,14 +21,14 @@ struct OrderView: View {
                         ForEach(order.items){ appetizer in
                             AppetizerListCell(appetizer: appetizer)
                         }
-                        .onDelete(perform: deleteItem)
+                        .onDelete(perform: order.deleteItem)
                     }
                     .listStyle(PlainListStyle())
                     
                     Button{
                         print("orders")
                     } label: {
-                        APButton(title: "$9.99 - place order")
+                        APButton(title: "$\(order.totalPrice, specifier: "%.2f") - place order")
                     }
                     .padding(.bottom, 25)
                 }
@@ -40,10 +41,6 @@ struct OrderView: View {
             .navigationTitle("🚚 Orders")
         }
         
-    }
-    
-    func deleteItem(at offsets: IndexSet){
-        order.items.remove(atOffsets: offsets)
     }
 }
 
